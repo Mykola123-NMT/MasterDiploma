@@ -98,3 +98,115 @@ The client-side application uses **Node.js 16.13.2**. Ensure you have this versi
    ```bash
    npm install
    npm install antd
+
+
+
+# Project Structure
+
+## **Diploma.Server**
+This is the backend application responsible for processing requests, managing data, and integrating with other components.
+
+- **Controllers**
+  - `EvaluationController.cs`: Handles requests related to product evaluations.
+  - `ProductsController.cs`: Handles requests for product data retrieval.
+
+- **Interfaces**
+  - `IExpertEvaluationService.cs`: Interface for the service managing expert evaluations.
+  - `IExpertRepository.cs`: Interface for accessing expert data.
+  - `IExpertService.cs`: Interface for managing language models as experts.
+  - `IFeatureEngineeringService.cs`: Interface for creating product features.
+  - `IOpinionAgreementService.cs`: Interface for expert opinion agreement.
+  - `IProductRepository.cs`: Interface for accessing product data.
+  - `IProductService.cs`: Interface for managing product-related operations.
+
+- **Migrations**
+  - Contains database migration files for schema changes.
+
+- **Models**
+  - `ConsensusEvaluation.cs`: Represents agreed-upon evaluations from experts.
+  - `DataContext.cs`: Database context for Entity Framework.
+  - `ExpertEvaluation.cs`: Represents evaluations provided by expert models.
+  - `LLMExpert.cs`: Represents a language model expert.
+  - `Product.cs`: Represents a product in the system.
+
+- **Properties**
+  - `launchSettings.json`: Configuration for running the application in development.
+
+- **Repositories**
+  - `ExpertRepository.cs`: Implementation for accessing expert data.
+  - `ProductRepository.cs`: Implementation for accessing product data.
+
+- **Services**
+  - `ExpertEvaluationService.cs`: Service for managing expert evaluations.
+  - `ExpertService.cs`: Service for managing language model experts.
+  - `FeatureEngineeringService.cs`: Service for calculating additional product features.
+  - `OpinionAgreementService.cs`: Service for aligning expert opinions.
+  - `ProductService.cs`: Service for managing product data.
+
+- **Root Files**
+  - `Diploma.Server.csproj`: Project file for the backend application.
+  - `Diploma.Server.http`: Test HTTP requests for API endpoints.
+  - `Program.cs`: Entry point for the backend application.
+  - `RegressionModel.*`: Files related to using and training the regression model.
+  - `appsettings.Development.json`: Development-specific application settings.
+  - `appsettings.json`: General application settings.
+
+---
+
+## **DimplomaTest**
+This project is for unit testing server-side services.
+
+- `DimplomaTest.csproj`: Project file for the testing application.
+- `ExpertEvaluationsServiceTests.cs`: Tests for the expert evaluation service.
+- `ExpertServiceTests.cs`: Tests for the expert management service.
+- `FeatureEngineeringServiceTests.cs`: Tests for the feature engineering service.
+- `OpinionAgreementServiceTests.cs`: Tests for the opinion agreement service.
+- `ProductServiceTests.cs`: Tests for the product management service.
+
+---
+
+## **diploma.client**
+This is the frontend application for user interaction.
+
+- **public**: Contains public assets for the frontend application.
+- **src**: Contains the main source code for the frontend.
+  - **api**
+    - `api.ts`: General API configuration and setup.
+    - `errorHandler.ts`: Handles API errors globally.
+    - `evaluationApi.ts`: API methods for evaluations.
+    - `productApi.ts`: API methods for products.
+  - **components**
+    - `Evaluation.tsx`: Component for rendering evaluation data.
+    - `EvaluationResultsForm.tsx`: Form for displaying evaluation results.
+    - `ExpertOpinionList.tsx`: Displays a list of expert opinions.
+    - `LoadMoreButton.tsx`: Button to load more items.
+    - `Opinion.tsx`: Component for rendering individual opinions.
+    - `Product.tsx`: Component for displaying product data.
+    - `ProductForm.tsx`: Form for submitting product data.
+    - `ProductList.tsx`: Displays a list of products.
+  - **models**: Contains TypeScript models used throughout the frontend.
+  - `App.css`: Global styles for the application.
+  - `App.tsx`: Main application component.
+  - `config.ts`: Configuration settings for the frontend.
+  - `index.css`: Global styles applied at the root level.
+  - `main.tsx`: Entry point for the React application.
+  - `vite-env.d.ts`: TypeScript declarations for Vite.
+
+- **Root Files**
+  - `.gitignore`: Files and folders to exclude from version control.
+  - `diploma.client.esproj`: Project file for the frontend.
+  - `eslint.config.js`: Configuration for ESLint.
+  - `index.html`: Entry HTML file for the application.
+  - `nuget.config`: Configuration for NuGet packages.
+  - `package-lock.json`, `package.json`: Node.js dependencies and configuration.
+  - `tsconfig.*`: TypeScript configuration files.
+  - `vite.config.ts`: Configuration file for Vite.
+
+---
+
+## **Root Files**
+- `.gitattributes`: Defines attributes for version-controlled files.
+- `.gitignore`: Specifies files to be excluded from version control.
+- `Diploma.bak`: Backup of the database.
+- `Diploma.sln`: Solution file for Visual Studio.
+- `README.md`: Documentation for the project.
